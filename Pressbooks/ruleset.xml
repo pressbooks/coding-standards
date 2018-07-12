@@ -12,8 +12,6 @@
     <arg value="s"/>
     <!-- Use HM Coding Standards -->
     <rule ref="vendor/humanmade/coding-standards">
-        <!-- Disable all ESLint checks: -->
-        <exclude name="HM.Debug.ESLint"/>
         <!-- Disable rules Pressbooks overrides -->
         <exclude name="WordPress.CSRF.NonceVerification.NoNonceVerification"/>
         <!-- Disable rules Pressbooks disagrees with: -->
