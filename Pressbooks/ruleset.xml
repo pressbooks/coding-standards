@@ -13,7 +13,7 @@
     <!-- Use HM Coding Standards -->
     <rule ref="vendor/humanmade/coding-standards">
         <!-- Disable rules Pressbooks overrides -->
-        <exclude name="WordPress.Security.NonceVerification.NoNonceVerification"/>
+        <exclude name="WordPress.Security.NonceVerification"/>
         <!-- Disable rules Pressbooks disagrees with: -->
         <exclude name="WordPress.NamingConventions.ValidFunctionName.MethodNameInvalid"/>
         <exclude name="WordPress.NamingConventions.ValidVariableName.MemberNotSnakeCase"/>
