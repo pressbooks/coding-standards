@@ -2,7 +2,7 @@
 
 namespace Pressbooks\Sniffs\Security;
 
-class NonceVerificationSniff extends \WordPress\Sniffs\Security\NonceVerificationSniff {
+class NonceVerificationSniff extends \WordPressCS\WordPress\Sniffs\Security\NonceVerificationSniff {
 
 	/**
 	 * Chill out for $_GET and $_REQUEST
