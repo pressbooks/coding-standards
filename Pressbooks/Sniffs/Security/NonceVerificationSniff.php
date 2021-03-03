@@ -1,8 +1,8 @@
 <?php
 
-namespace Pressbooks\Sniffs\CSRF;
+namespace Pressbooks\Sniffs\Security;
 
-class NonceVerificationSniff extends \WordPress\Sniffs\CSRF\NonceVerificationSniff {
+class NonceVerificationSniff extends \WordPressCS\WordPress\Sniffs\Security\NonceVerificationSniff {
 
 	/**
 	 * Chill out for $_GET and $_REQUEST
