@@ -18,6 +18,9 @@
         <!-- Disable rules Pressbooks disagrees with: -->
         <exclude name="WordPress.NamingConventions.ValidFunctionName.MethodNameInvalid"/>
         <exclude name="WordPress.NamingConventions.ValidVariableName.PropertyNotSnakeCase"/>
+        <exclude name="Squiz.Commenting"/>
+        <exclude name="Generic.Commenting.DocComment"/>
+        <exclude name="WordPress.NamingConventions.ValidVariableName.PropertyNotSnakeCase"/>
         <exclude name="WordPress.NamingConventions.ValidVariableName.UsedPropertyNotSnakeCase"/>
         <exclude name="WordPress.PHP.DiscouragedPHPFunctions.system_calls_exec"/>
         <exclude name="WordPress.PHP.DiscouragedPHPFunctions.runtime_configuration_ini_set"/>
@@ -30,10 +33,15 @@
     <rule ref="PSR1.Methods.CamelCapsMethodName"/>
     <!-- Disable Side Effects rule for cron scripts -->
     <rule ref="PSR1.Files.SideEffects">
+        <exclude-pattern>/*.php</exclude-pattern>
         <exclude-pattern>/bin/*</exclude-pattern>
+    </rule>
+    <rule ref="HM.Files.NamespaceDirectoryName.NoIncDirectory">
+        <exclude-pattern>/bin/**/*</exclude-pattern>
     </rule>
     <!-- Disable Namespaced Functions for cron scripts -->
     <rule ref="HM.Functions.NamespacedFunctions">
         <exclude-pattern>/bin/*</exclude-pattern>
     </rule>
+    <rule ref="PHPCompatibility"/>
 </ruleset>
