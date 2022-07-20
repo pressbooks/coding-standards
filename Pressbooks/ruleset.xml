@@ -12,6 +12,7 @@
     <arg value="s"/>
     <!-- Use HM Coding Standards -->
     <rule ref="vendor/humanmade/coding-standards">
+        <!-- TODO sort rules by alphabetical order -->
         <!-- Disable rules Pressbooks overrides -->
         <exclude name="HM.Security"/>
         <exclude name="WordPress.Security.NonceVerification"/>
@@ -27,6 +28,9 @@
         <exclude name="WordPress.PHP.DiscouragedPHPFunctions.runtime_configuration_putenv"/>
         <exclude name="WordPress.PHP.DevelopmentFunctions.error_log_trigger_error"/>
         <exclude name="Generic.Formatting.MultipleStatementAlignment.NotSameWarning"/>
+
+        <!-- TODO this is temporary, rule fails because WPCS and Coding Standards don't fully support PHP 8 yet -->
+        <exclude name="Pressbooks.Security.EscapeOutput.OutputNotEscaped" />
     </rule>
     <!-- Re-enable PSR rules Pressbooks agrees with -->
     <rule ref="Generic.NamingConventions.UpperCaseConstantName"/>
