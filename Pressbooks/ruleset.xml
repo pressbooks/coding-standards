@@ -12,11 +12,15 @@
     <arg value="s"/>
     <!-- Use HM Coding Standards -->
     <rule ref="vendor/humanmade/coding-standards">
+        <!-- TODO sort rules by alphabetical order -->
         <!-- Disable rules Pressbooks overrides -->
         <exclude name="HM.Security"/>
         <exclude name="WordPress.Security.NonceVerification"/>
         <!-- Disable rules Pressbooks disagrees with: -->
         <exclude name="WordPress.NamingConventions.ValidFunctionName.MethodNameInvalid"/>
+        <exclude name="WordPress.NamingConventions.ValidVariableName.PropertyNotSnakeCase"/>
+        <exclude name="Squiz.Commenting"/>
+        <exclude name="Generic.Commenting.DocComment"/>
         <exclude name="WordPress.NamingConventions.ValidVariableName.PropertyNotSnakeCase"/>
         <exclude name="WordPress.NamingConventions.ValidVariableName.UsedPropertyNotSnakeCase"/>
         <exclude name="WordPress.PHP.DiscouragedPHPFunctions.system_calls_exec"/>
@@ -24,16 +28,24 @@
         <exclude name="WordPress.PHP.DiscouragedPHPFunctions.runtime_configuration_putenv"/>
         <exclude name="WordPress.PHP.DevelopmentFunctions.error_log_trigger_error"/>
         <exclude name="Generic.Formatting.MultipleStatementAlignment.NotSameWarning"/>
+
+        <!-- TODO this is temporary, rule fails because WPCS and Coding Standards don't fully support PHP 8 yet -->
+        <exclude name="Pressbooks.Security.EscapeOutput.OutputNotEscaped" />
     </rule>
     <!-- Re-enable PSR rules Pressbooks agrees with -->
     <rule ref="Generic.NamingConventions.UpperCaseConstantName"/>
     <rule ref="PSR1.Methods.CamelCapsMethodName"/>
     <!-- Disable Side Effects rule for cron scripts -->
     <rule ref="PSR1.Files.SideEffects">
+        <exclude-pattern>/*.php</exclude-pattern>
         <exclude-pattern>/bin/*</exclude-pattern>
+    </rule>
+    <rule ref="HM.Files.NamespaceDirectoryName.NoIncDirectory">
+        <exclude-pattern>/bin/**/*</exclude-pattern>
     </rule>
     <!-- Disable Namespaced Functions for cron scripts -->
     <rule ref="HM.Functions.NamespacedFunctions">
         <exclude-pattern>/bin/*</exclude-pattern>
     </rule>
+    <rule ref="PHPCompatibility"/>
 </ruleset>
