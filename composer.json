@@ -6,6 +6,6 @@
         "humanmade/coding-standards": "^1.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "^9.5"
+        "phpunit/phpunit": "^11.5"
     }
 }
