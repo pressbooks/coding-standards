@@ -71,7 +71,7 @@ class ValidatedSanitizedInputSniff extends WPCSValidatedSanitizedInputSniff {
 	 * @return bool True if this is a $_SERVER variable and is safe, false to run regular checks.
 	 */
 	protected function check_server_variable( $stackPtr ) {
-		$key = $this->get_array_access_key( $stackPtr );
+		$key = $this->get_array_access_keys( $stackPtr );
 
 		// Find the next non-whitespace token.
 		$open_bracket = $this->phpcsFile->findNext( T_WHITESPACE, ( $stackPtr + 1 ), null, true );
