@@ -5,6 +5,7 @@ namespace Pressbooks\Sniffs\Security;
 use Pressbooks\Sniffs\ExtraSniffCode;
 use PHP_CodeSniffer\Files\File as PhpcsFile;
 use WordPressCS\WordPress\Sniffs\Security\ValidatedSanitizedInputSniff as WPCSValidatedSanitizedInputSniff;
+use PHPCSUtils\Utils\TextStrings;
 
 class ValidatedSanitizedInputSniff extends WPCSValidatedSanitizedInputSniff {
 	use ExtraSniffCode;
@@ -71,8 +72,6 @@ class ValidatedSanitizedInputSniff extends WPCSValidatedSanitizedInputSniff {
 	 * @return bool True if this is a $_SERVER variable and is safe, false to run regular checks.
 	 */
 	protected function check_server_variable( $stackPtr ) {
-		$key = $this->get_array_access_key( $stackPtr );
-
 		// Find the next non-whitespace token.
 		$open_bracket = $this->phpcsFile->findNext( T_WHITESPACE, ( $stackPtr + 1 ), null, true );
 		if ( $this->tokens[ $open_bracket ]['code'] !== T_OPEN_SQUARE_BRACKET ) {
@@ -94,7 +93,7 @@ class ValidatedSanitizedInputSniff extends WPCSValidatedSanitizedInputSniff {
 		}
 
 		// Constant string, check if it's allowed.
-		$key = $this->strip_quotes( $this->tokens[ $index_token ]['content'] );
+		$key = TextStrings::stripQuotes( $this->tokens[ $index_token ]['content'] );
 		if ( ! in_array( $key, $this->allowedServerKeys, true ) ) {
 			// Unsafe key, requires sanitising.
 			return false;
